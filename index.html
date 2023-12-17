@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Barbershop</title>
+    <link rel="stylesheet" href="src/styles/hover-min.css">
+    <link rel="stylesheet" href="src/styles/animate.min.css">
+    <link rel="stylesheet/less" href="src/styles/style.less">
+    <link rel="stylesheet" href="src/styles/slick.css">
+    <link rel="stylesheet" href="src/styles/slick-theme.css">
+    <link rel="stylesheet/less" href="src/styles/adaptive.less">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src/scripts/less.js"></script>
+</head>
+
+<body>
+
+<div class="launch">
+    <header class="header">
+        <div class="container header-container wow animate__fadeInDown">
+            <div class="header-burger" id="burger">
+                <svg enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="m464.883 64.267h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/>
+                    <path d="m464.883 208.867h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/>
+                    <path d="m464.883 353.467h-417.766c-25.98 0-47.117 21.137-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.012-21.137-47.149-47.117-47.149z"/>
+                </svg>
+            </div>
+            <a href="#" class="logo">
+                <img src="src/images/logo.png" alt="logo">
+            </a>
+            <nav class="menu" id="menu">
+                <div class="menu-close">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
+                     <g>
+                         <g>
+                             <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                                    c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                                    c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                                    L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                                    c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                                    c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                                    c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+                         </g>
+                     </g>
+                </svg>
+                </div>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#prices" class="menu-link">Услуги</a>
+                    </li>
+                    <li>
+                        <a href="#prices" class="menu-link">Цены</a>
+                    </li>
+                    <li>
+                        <a href="#masters" class="menu-link">Барберы</a>
+                    </li>
+                    <li>
+                        <a href="#advantages" class="menu-link">О нас</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="phone hvr-buzz-out">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19"
+                     height="19" viewBox="0 0 19 19">
+                    <image id="communications" width="19" height="19"
+                           xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAB3UlEQVQ4jY3US4iNYRgH8N+ZIVKzEFmJhSxcdkS5FiIrDU2ak0tu5ZbM5lBioSzOKSW3DZJksmAOcik7SaZY2slKSpFZKCS3nuk9eufrO5x/nfrO8z3v//u/z/P8n8pQvR8m4yQW4jxu6BC9tcG/iV1YgLu4heXYhRmdkuUIsuPYiCf4gUO4gEohdwm2Yc6/yLrxMYu9wjB2F3Lf4SsO4BHmlpH9KvlIHVvQk8XmYVZSvQfnUo3HkI1P6nJML7nms6Q4yrIdfTjdbFQn5GTDqfAtLMJV7MDnLL4Oq7APU7EM19Gfk8XB/dmhTTiKNwVlt/Ecl3AifWwIa3Kyt/iAFSl2GcdK6vgzFf59UhznPqXfKPKhvYP1+JKUfcOZEtIxKA5tYASncDH9r6dO9f2PLEdX9vwYr1HDb+zE5jaEPYWxGaOshVA3M1nqO6rYgMNZTszaA9yPeWs2qpV2ZJKdVmaEWzER97A4NShstRrTIt5sVEe93GpAEd2pfjEejfRudrJYLIQXWf58nMWVMmXSGOxN7riGSameRwpE0c3w8locbEcWiCZEDW/iYcElRSzFy3bXLCLsE8szahTL82lSH5iCZjRqXCdMaUWF5aLQYaO4buy+6GSQDvTWBkf+ADjZazEd7nW0AAAAAElFTkSuQmCC"/>
+                </svg>
+                <span class="number">+7 912 816-93-96</span>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container main-container">
+            <div class="main-strong">
+                <img src="src/images/strong.png" alt="strong">
+            </div>
+            <div class="main-info wow animate__fadeInLeft">
+                <h1 class="main-info-title">
+                    Создайте деловой имидж, который достоин Вас!
+                </h1>
+                <span class="main-info-text">
+                    Мужские стрижки и бритье в центре Москвы
+                </span>
+            </div>
+            <div class="main-btn">
+                <button class="btn" id="online">Записаться онлайн</button>
+            </div>
+
+            <div class="main-image wow animate__fadeInRight">
+                <img src="src/images/main-barber.png" alt="barber">
+            </div>
+            <div class="main-club">
+                <img src="src/images/club.png" alt="club">
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="short">
+    <div class="container short-container">
+        <div class="short-info wow animate__zoomIn">
+            <div class="short-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60"
+                     height="60" viewBox="0 0 60 60">
+                    <image id="maps-and-location" width="60" height="60"
+                           xlink:href="data:img/png;base64,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"/>
+                </svg>
+            </div>
+            <span class="short-text">Находимся в центре Москвы</span>
+        </div>
+        <div class="short-info wow animate__zoomIn">
+            <div class="short-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60"
+                     height="60" viewBox="0 0 60 60">
+                    <image id="electronics" width="60" height="60"
+                           xlink:href="data:img/png;base64,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"/>
+                </svg>
+            </div>
+            <span class="short-text">Лучшие мастера</span>
+        </div>
+        <div class="short-info wow animate__zoomIn">
+            <div class="short-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60"
+                     height="60" viewBox="0 0 60 60">
+                    <image id="avatar" width="60" height="60"
+                           xlink:href="data:img/png;base64,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"/>
+                </svg>
+            </div>
+            <span class="short-text">Довольные клиенты</span>
+        </div>
+    </div>
+</section>
+
+<section class="advantages" id="advantages">
+    <div class="container advantages-container">
+        <h2 class="advantages-title wow animate__fadeInDown">
+            Strong Club – это намного больше, чем просто мужская парикмахерская
+        </h2>
+        <div class="advantages-main">
+            <div class="advantages-image wow animate__fadeInLeft">
+                <img src="src/images/work.png" alt="work">
+            </div>
+            <div class="advantages-text wow animate__fadeInRight">
+                <span class="advantages-text-info">
+                    Это место, где Вам помогут найти свой собственный, неповторимый стиль. Стоит довериться мастерам Strong Club один раз, и, поверьте, новый образ не оставит Вас равнодушным. Мужские стрижки и опасное бритье — это наш профиль, и мы уверены, что наши барберы делают это лучше всех.
+                </span>
+                <span class="advantages-text-info">
+                    У нас есть всё, что требуется настоящему мужчине: атмосфера брутальности и мужского духа, профессионализм барберов и сохранение европейских традиций барберинга, а также отличный кофе и хорошая компания.
+                </span>
+                <span class="advantages-text-info">
+                    Наши Барберы не только создадут уникальный внешний вид, но и поддержат разговор на любую тему!
+                </span>
+                <div class="advantage-image wow animate__fadeInRight">
+                    <img src="src/images/head.png" alt="head">
+                </div>
+            </div>
+            <div class="advantages-info wow animate__fadeInLeft">
+                <div class="advantage-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31"
+                         height="26" viewBox="0 0 31 26">
+                        <image id="food-and-restaurant" width="31" height="26"
+                               xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAaCAYAAABPY4eKAAACwElEQVRIibWWX2hPYRjHP2NhSUiSxXYho0lJ/iS52YWLJXqXvy+SlVxQu6B3yb9CtHPtZlmSi1dcOBfbjX8jVv5nLaLRGL/JBTXcCBs96/nVr3XO2Tnr93vq13mf876/53ve59/3KbvesoMM0gs0AyFQCTwENhnnu8PArgKuAOuM85/TmJyQBRl4CRzT9RfgO+BUfwPMAPanNZYV/B6wQNfDQBewWBTj/A/gGVBTKnBxbU7XZcAKoE+UMLAVwFLgY1pj5RmAVwMW2Kf6LmAlcEj1I8B0oDWtwSw33w28Ay6qvgfoMM4/KNBbjfN9pQCXZPoE/CvQcwX704CBDPYygT8G1gJVqj+SMgsDO0X1p8D2UoG3AVeBCtXPAfcLdKn/V1nA45qMuHBWFkMxIiEaMM7/jdqOyvaT+isrArjIYBjYLcb522OBiwtPKHh7kcBbtCuOCT5Z80DKpzuNZeN84n4Y2NdAfRjYo9odf8lr4/yt0Qk3pM+paYBTijSihUAjMBtYAtwMA9s4+uY/gT/A3CKCfwPuGufr8i/CwF4AmqJK7YX28GLJMi3JQpFQVEaB3wE2Zuz7kRIGVohnvtrM33oi0AD0RIFfBuYA24pw8yblgy4Flph3AMtlDogCl6FAUviMNptxSRjYNcBO4BRQHQb2rNKv8H+dcf55XHttVuBL42k2YWCrdNTqBw4C75UVjwO1xnnhhdi45vSr25WfD2gVpAGWSnmioXura6nxTuP8cOHZpKS6AWzWobBW67R3DOANSkAyUq03zvcknRdiEaZalHBGKLNau1+/Do1RMk/JaFA9N5Rgs804f75cXbNVa+9a3EfqfCYj8deYMzXaOuNmuEkaf3lKBYy4XZq+fKUQipSAlMLviD9L0iTJh4TNmcBevUS9cb4zDy4iLCZkchg4rS4upkioBLDBOD9ya4D/fq2075XAmPcAAAAASUVORK5CYII="/>
+                    </svg>
+                </div>
+                <div class="advantage-text">
+                    Мы предложим вам чашечку кофе или чая
+                </div>
+                <div class="advantage-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16"
+                         height="28" viewBox="0 0 16 28">
+                        <image id="salon" width="16" height="28"
+                               xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAB90lEQVQ4jZ3VS6hNYRQH8N+91xXlFRnckIlXnnmUUBQKUUiSiCQGJiaKYkSRZCIThe6AkgEpAzfFQBjKK8+4xcC7hFKefbW2vvbZx77867Taq7X+33qflnMH1yphAgbgZkm/GSfKxq2l7+R4HqtL+jYcxfY6giEYjTkl/Sj0wdw6gm58wVT0zfSTQz6oI/iF+2jHjAqCx3UEgiBhdgXBw54Q3AmZ12FKyEdl4141EbREZ0biFT72hOBuyNSRsRja7PVmBOmlDxgcaRTdqCSoqkEexYJM11DAvxHcC7kCl/DuXyMoCFL4e7DtfyNI2IgfeFZlWFXEtmziiqU6hWW4UhdB6nsnJgXJ8PilVC5WLFlDBNOxPmZgHfZhWNbWvaXONBD0wzfsxi0sySLtzHaiaQoJt8M5x0+crrD9QzANXTgTs9+/wrYD46OdB9C7IOiI6qZbeD2uT1cpunE4hhd4il04VBCswUDMwyrsx6xYpAIbIo2Z0c7j2JJa3hohf8fLMH4eclFGkDbyE97Hd3e0tj0RXItuHMFC7Ayj/fFawusgSbql2Wh/TQRXcRhbcRlj8BlnsyOabBJS7idjrDclRTEHO6JII/A2HFNaBVKRb2AQJsbxbZiDJ2GYbkHunJAcVsaxSf9Oi2NCK5epGd7EGKd9mI/luPAbaulnZv6f/10AAAAASUVORK5CYII="/>
+                    </svg>
+                </div>
+                <div class="advantage-text">
+                    Мы пострижем и побреем вас по всем европейским традициям
+                </div>
+                <div class="advantage-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19"
+                         height="20" viewBox="0 0 19 20">
+                        <image id="interface" width="19" height="20"
+                               xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAABQElEQVQ4jaXUMUgcQRjF8d/FbSQEQUgRiDZRSaNcmy5VioDigik8q6AWBuutFVTINSkCKYI2FlvpXWGbzgg2goVgIyGVlWARNCBowoTdKIJwO/dgYHjL9+ebnfdNrfVxWoReYhef0ixfK8sfxZBwip9YbTcbn9vNRk8wYzsLeowW3mALMwk2MRYJrOEcU3gVYBPFh8MIWPhNz4v9RXIH9Loi6Cl20I+v+JB0UPQQ6DtGsJRm+XIwY2FPcIW5NMs3SjMW9gOj980SdhMJ/ad2s7GIgQCbLULYjUI06gG23SXov+6P0wKOMNgNLCR5BV8K71cMLClWCN177GG8GJHKCoN+ghc4w3HkzdbLznrvHLkPfyJg4Tk6CLAh5JjEPt7hslNKmoXS225+FzlZx1t8K96qyipv8xrzYWgxjGeVSfgLenQ8KLoTdOsAAAAASUVORK5CYII="/>
+                    </svg>
+                </div>
+                <div class="advantage-text">
+                    И скоро вы снова захотите вернуться в наш барбершоп
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="instagram">
+    <div class="container instagram-container">
+        <div class="instagram-title wow animate__zoomIn">
+            Следи за нами в <span>Instagram</span>, чтобы быть в курсе всех акций!
+        </div>
+        <a href="https://www.instagram.com/2man_barber" class="btn btn-instagram wow animate__zoomIn">
+            Подписаться
+        </a>
+    </div>
+</section>
+
+<section class="prices" id="prices">
+    <div class="container prices-container">
+        <h2 class="prices-title wow animate__fadeInDown">
+            Прайс на наши услуги
+        </h2>
+        <div class="prices-services">
+            <div class="basic-services wow animate__fadeInLeft">
+                <h3>
+                    Основные услуги
+                </h3>
+                <div class="service">
+                    <div class="title-service">
+                        Стрижка мужская
+                    </div>
+                    <div class="price">
+                        1 400 руб.
+                    </div>
+                    <div class="double-title-service">
+                        подбор стрижки, 2 мытья, укладка
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Стрижка удлиненная
+                    </div>
+                    <div class="price">
+                        2 100 руб.
+                    </div>
+                    <div class="double-title-service">
+                        подбор стрижки, 2 мытья, укладка
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Стрижка машинкой
+                    </div>
+                    <div class="price">
+                        950 руб.
+                    </div>
+                    <div class="double-title-service">
+                        без ножниц
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Стрижка детская
+                    </div>
+                    <div class="price">
+                        1 100 руб.
+                    </div>
+                    <div class="double-title-service">
+                        от 4 до 14 лет включительно, не удлиненная
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Стрижка бороды
+                    </div>
+                    <div class="price">
+                        950 руб.
+                    </div>
+                    <div class="double-title-service">
+                        с распариванием и окантовкой бритвой шаветт
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Классическое бритьё
+                    </div>
+                    <div class="price">
+                        1 400 руб.
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Королевское бритьё
+                    </div>
+                    <div class="price">
+                        1 850 руб.
+                    </div>
+                </div>
+            </div>
+            <div class="complex-services wow animate__fadeInRight">
+                <h3>
+                    Комплексные услуги
+                </h3>
+                <div class="service">
+                    <div class="title-service">
+                        Отец + сын
+                    </div>
+                    <div class="price">
+                        2 200 руб.
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Друг + друг
+                    </div>
+                    <div class="price">
+                        2 500 руб.
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Стрижка + Бритьё
+                    </div>
+                    <div class="price">
+                        2 500 руб.
+                    </div>
+                </div>
+            </div>
+            <div class="additional-services wow animate__fadeInRight">
+                <h3>
+                    Дополнительные услуги
+                </h3>
+                <div class="service">
+                    <div class="title-service">
+                        Укладка волос
+                    </div>
+                    <div class="price">
+                        300 руб.
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Коррекция воском
+                    </div>
+                    <div class="price">
+                        450 руб.
+                    </div>
+                    <div class="double-title-service">
+                        удаление нежелательных волос на лице
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Камуфляж седины
+                    </div>
+                    <div class="price">
+                        1 100 руб.
+                    </div>
+                    <div class="double-title-service">
+                        предварительная консультация с мастером
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title-service">
+                        Бритьё головы
+                    </div>
+                    <div class="price">
+                        1 250 руб.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="discount">
+    <div class="container discount-container">
+        <div class="discount-title wow animate__zoomIn">
+            <h3>
+                Вы у нас первый раз?
+            </h3>
+            <h3>
+                Получите <span>скидку 15%</span>
+            </h3>
+        </div>
+        <button class="btn wow animate__zoomIn" id="sale">Получить скидку</button>
+    </div>
+</section>
+
+<section class="masters" id="masters">
+    <div class="container masters-container">
+        <h2 class="masters-title wow animate__fadeInLeft">
+            Наши мастера
+        </h2>
+        <div class="masters-text wow animate__fadeInRight">
+            Вот они, простые герои, несущие в мир стиль и безупречный внешний вид. Команда Barber Club каждый день
+            трудится над тем, чтобы создавать и поддерживать ваш индивидуальный стиль, подчеркивать характер и
+            превращать недостатки в достоинства.
+        </div>
+        <div class="masters-carousel wow animate__fadeInUp">
+            <div class="slider slick-slider">
+                <div class="slick-slide">
+                    <img src="src/images/marat.png" alt="Marat">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Марат</h3>
+                        <button class="btn slider-btn" id="marat" data-barbername="Марат">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/ekaterina.png" alt="Ekaterina">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Екатерина</h3>
+                        <button class="btn slider-btn" id="ekaterina" data-barbername="Екатерина">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/sergey.png" alt="Sergey">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Сергей</h3>
+                        <button class="btn slider-btn" id="sergey" data-barbername="Сергей">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/artur.png" alt="Artur">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Артур</h3>
+                        <button class="btn slider-btn" id="artur" data-barbername="Артур">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/david.png" alt="David">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Давид</h3>
+                        <button class="btn slider-btn" id="david" data-barbername="Давид">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/olga.png" alt="Olga">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Ольга</h3>
+                        <button class="btn slider-btn" id="olga" data-barbername="Ольга">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/ruslan.png" alt="Ruslan">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Руслан</h3>
+                        <button class="btn slider-btn" id="ruslan" data-barbername="Руслан">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/tigran.png" alt="Tigran">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Тигран</h3>
+                        <button class="btn slider-btn" id="tigran" data-barbername="Тигран">Записаться</button>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <img src="src/images/aleksey.png" alt="Aleksey">
+                    <div class="slider-item">
+                        <h3 class="slider-title">Алексей</h3>
+                        <button class="btn slider-btn" id="aleksey" data-barbername="Алексей">Записаться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-main">
+            <div class="footer-main-info wow animate__fadeInLeft">
+                <a href="#" class="logo footer-logo">
+                    <img src="src/images/logo.png" alt="logo">
+                </a>
+                <div class="time">
+                    Время работы:
+                    <span>Пн-Вс 10:00-21:00</span>
+                </div>
+                <div class="address">
+                    г. Москва, Москва Сити, Башня «Деловой центр»
+                </div>
+                <div class="social">
+                    <div class="social-item">
+                        Мы в социальных сетях:
+                    </div>
+                    <div class="social-svg">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="26"
+                                 height="26"
+                                 viewBox="0 0 26 26">
+                                <image id="icons8-vkontakte-50" width="26" height="26"
+                                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAACQElEQVRIibWWT4hPURTHP7/XmCmT1CBZiISN/P9b5KdkS2/FXKxM2ViJu9EomZK7spBiIRt3bMy1kLLDDkNKIqOZlUYy/gwS8Rud5vzq9Xrv9+b9evOt233n3XPP9957zj3n1oYu9gKsAK4B26gWj4HjsfWjQrQK8ID0zysm2gSMAL0dwA1gI7AI+FLWUmx97lhwpgf4KBwRsBV42A7JDBbxGXggLhGiP8BU1SQJ1IRDiBpAlKO0CxgGJhNNdv4BeAfcDM4cmAFRo6NAaR+wGTiv8pROnAN0AxuAO8EZOfr9sfWTeYaKiMTgN+BsC521wDPgCnAkTynvyJr4m9KRuzam5GeYdvhL4ChwODjT3S5RGn3AG+AEMKCy4IcuKhdlidL4pHI/cDe2/meeYpGP0rgE7AUuAMeAF8GZr8B8YFmVOzoJrAeWAtf1Dt7T2y/Rt7IqovuAHM8/DfWB2HoDrAEWA4PBmcxTKku0GxgCtgM7JZyDM5dj68VXdWALsC5rYlkfNTQbP1VZLugS/X6v/cKsiWV3JMbO6bFJGwdO69gO7ceyJhbtKEol3LqWky79PyxlIjgjGWQQeBRbP9IOUU11elQe19bE8uDMIeAUIGF+MM9QEZFk6LnARMaY7Oi3jt0Wstj67+0S3QJeAfMyxiQwxPDrVhkhSdSsSVn4BTxpZaBVKU8sKBKSTvXFbEFsd0a64nrC4ZUhOLMA2CPPLnluSX6S0FytBaxKSHV+23xuSWRJWF7V1FIlph+Q1o/+BymdmIby0fMtAAAAAElFTkSuQmCC"/>
+                            </svg>
+                        </a>
+
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="26"
+                                 height="26"
+                                 viewBox="0 0 26 26">
+                                <image id="instagram" width="26" height="26"
+                                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAB+UlEQVRIib2WMUscQRTHfx53JwYi+A1EBEFJI2lEUUS0vLCFoEtslHwCYcEitWQhnaAgXnOyCIJrLLWQBOUQxCaJlYjpBUVByF0jL/wP1qDr7bL6YNhl5r/vt+/NvJlp2foyDTAALOpZJBurAVVgwfGCqoHM+XfgDvgGXGUE6gA+AG+AkbwiMUg/cJ7Um+MFT46FvtsFnBgjr3RtpIH857QNWALGgd/AJ8cLzkPftSxN5TQnWaRrAZgF/gBjwKr6zXcxlwGgYe+AW0GOgL7oYLOgov52G/ilZu+zoe82Vuku8Ba4BIaAvaiDfBOQ98Am0AncAD/VP6pV9Tn03UlgRf0T0iwmARnkB/AXmAMqQF1jBWAG+CrNsOMFy8DyY47iUldUJAYZBMoRCHova8w0m5E0JgJ9VLrmgdOnRI4XnErTqW8Sg0qak0qMpmEVaUtpQN2a1HqM5p85XlCXtjsNKFOLA52pCAvPAUPfLUh7liaiHaBdS/g5m5F2Jw1oHbhQnfTGRNMrzYW+SQyyg8sqvhU41BYUTWNBfYfSTDpeUEsDMju2igeugTXtYwdql+q71q5wHOeomb3OHPSoGEuRJbyvOVmPiyQJCKWxrPbA4k7YqL1qHdV0kXgpM9+1nK5Edq50ZQ3S5cR8v+51yyIa0Yk49SIXSC+o3gMaoozQ2yHGVQAAAABJRU5ErkJggg=="/>
+                            </svg>
+                        </a>
+
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="26"
+                                 height="26"
+                                 viewBox="0 0 26 26">
+                                <image id="icons8-facebook-old-50" width="26" height="26"
+                                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAACDElEQVRIib3WTYjNURjH8c8dY7xFGlGSlPey8l5SrO3+CzS3lJ2U9X+r7OZurVhpFn87t6bEQnnJwnuUJMakxEJilITGpWfuuTVxL/eNX93O//zvOc/3f57zPM85pQujI7AWZ7FLf3Ubx7K8mAzQBhSI9kGfQdvwHCODOIetWI4PnVrK8qLlf9VKeRhvgzGAnbjeDaSNj3iPa7ElAfqGH/2GzFIpGOG6Gga6tVKtlPdiXvLIwywvak1Ata4BOIDJ5PYruIHH1Ur5RLPB3YJ24CLup2idi9Vp40/3E1TBIxyMHMnyYhprUihPN5sw2AVkfkrs4+p7FMk+ji34kqKsL6AwtghvUv9IQLK8KP1pUqegzViXnhvRtUB9ZdvTR3zN8mKiV9B42vyp9As9wUfcS/2JNKYn0CqcxKnGiywvxjCWVnUp5c1v6hQUUboem/Ay3FStlJdgJZamIBltNbET3cQhPE2VOXQ09W+lCnG5HyvKsAIvsDC9W4bPKWFrWV5MNZvYKehTuCs9N/ZiTiRpqtQt1U1lWJzaRsWvtQqA2eqlqHak/woamJXl/0Iz511AhtrxcQ8K20MBuoN9GG7TViO6XqX2XSuPVCvlCP39ce2K61Zk+nlsTAfZ3xRJuQfP8DodghGJV5tMjEIb42auW1EED+MMdrcB+o67KUGj9MSKwlgAf1X9ApkXkz8BLUuBlymlyx8AAAAASUVORK5CYII="/>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="mail">
+                    E-mail: info@barberclub.ru
+                </div>
+                <div class="number">
+                    +7 912 816-93-96
+                </div>
+            </div>
+            <div class="maps wow animate__fadeInUp">
+                <div style="position:relative;overflow:hidden;"><a
+                        href="https://yandex.ru/maps/org/2man/59551003539/?utm_medium=mapframe&utm_source=maps"
+                        style="color:#eee;font-size:12px;position:absolute;top:0px;">2man</a><a
+                        href="https://yandex.ru/maps/48/orenburg/category/barber_shop/239628851835/?utm_medium=mapframe&utm_source=maps"
+                        style="color:#eee;font-size:12px;position:absolute;top:14px;">Барбершоп в Оренбурге</a>
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=55.110677%2C51.760899&mode=search&oid=59551003539&ol=biz&z=17.48"
+                            frameborder="1" allowfullscreen="true">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-info">
+            <div class="right">
+                Все права защищены.
+            </div>
+            <div class="design">
+                Design by Karpuhin Vadim
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<div class="popup-sale popup" id="popup-sale">
+    <div class="popup-body">
+        <button class="popup-close">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"
+                 viewBox="0 0 18 18">
+                <image id="close" width="18" height="18"
+                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAt0lEQVQ4ja3UUQrCMAwG4F/p+Qo+uoM43QF020F8dLCzeJ4hGVFCl6RdMa9JPkJTcngN5zeAGUCHurgDiEdGbgD6Cqbn3jnwJAS2nLzuQKhnOF2eXUiaSzGJrLVBJEuxHyJrQlKUw1REgzzMRCxIw+AhHqRhJgJe+1/Cm0i+CXLbtCDrYU1MgyzE/Rop5K7YwySUQ1zsu7VSRGJU205js14NmojuyR5kM9k0NgtBEcCj8rARtgCIH2ffPgMc4e6SAAAAAElFTkSuQmCC"/>
+            </svg>
+        </button>
+        <h2 class="popup-title">
+            Просто запишитесь в наш барбершоп и приходите - скидку мы применим после осуществления услуги
+        </h2>
+    </div>
+</div>
+
+
+<div class="popup-form popup" id="popup-form">
+    <div class="popup-body">
+        <button class="popup-close">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"
+                 viewBox="0 0 18 18">
+                <image id="close" width="18" height="18"
+                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAt0lEQVQ4ja3UUQrCMAwG4F/p+Qo+uoM43QF020F8dLCzeJ4hGVFCl6RdMa9JPkJTcngN5zeAGUCHurgDiEdGbgD6Cqbn3jnwJAS2nLzuQKhnOF2eXUiaSzGJrLVBJEuxHyJrQlKUw1REgzzMRCxIw+AhHqRhJgJe+1/Cm0i+CXLbtCDrYU1MgyzE/Rop5K7YwySUQ1zsu7VSRGJU205js14NmojuyR5kM9k0NgtBEcCj8rARtgCIH2ffPgMc4e6SAAAAAElFTkSuQmCC"/>
+            </svg>
+        </button>
+        <h2 class="popup-title">
+            Заполните данные для оформления заявки
+        </h2>
+        <div class="form">
+            <div class="form-input-name">
+                <input type="text" placeholder="Ваше имя" class="form-input" id="name">
+                <div class="error-input">Напишите Ваше имя</div>
+            </div>
+
+            <div class="form-select">
+                <div class="dropdown">
+                    <button class="dropdown-button" id="service-btn">Выберете услугу</button>
+                    <ul class="dropdown-list">
+                        <li class="dropdown-list-item" data-value="service1">Стрижка мужская</li>
+                        <li class="dropdown-list-item" data-value="service2">Стрижка удлиненная</li>
+                        <li class="dropdown-list-item" data-value="service3">Стрижка машинкой</li>
+                        <li class="dropdown-list-item" data-value="service4">Стрижка детская</li>
+                        <li class="dropdown-list-item" data-value="service5">Стрижка бороды</li>
+                        <li class="dropdown-list-item" data-value="service6">Классическое бритьё</li>
+                        <li class="dropdown-list-item" data-value="service7">Королевское бритьё</li>
+                        <li class="dropdown-list-item" data-value="service8">Отец + сын</li>
+                        <li class="dropdown-list-item" data-value="service9">Друг + друг</li>
+                        <li class="dropdown-list-item" data-value="service10">Стрижка + Бритьё</li>
+                        <li class="dropdown-list-item" data-value="service11">Укладка волос</li>
+                        <li class="dropdown-list-item" data-value="service12">Коррекция воском</li>
+                        <li class="dropdown-list-item" data-value="service13">Камуфляж седины</li>
+                        <li class="dropdown-list-item" data-value="service14">Бритьё головы</li>
+                    </ul>
+                    <input type="text" name="select-category" class="dropdown-input-hidden" id="service">
+                    <div class="error-input">Выберете услугу</div>
+                </div>
+            </div>
+
+            <div class="form-input-date">
+                <input type="text" placeholder="Введите дату" class="form-input" id="date">
+                <div class="error-input">Напишите дату посещения</div>
+            </div>
+
+            <div class="form-input-phone">
+                <input type="text" placeholder="Ваш телефон" class="form-input" id="phone-input">
+                <div class="error-input">Напишите Ваш телефон</div>
+            </div>
+
+            <div class="form-select">
+                <div class="dropdown" id="dropdown">
+                    <button class="dropdown-button" id="master-btn">Выберете мастера</button>
+                    <ul class="dropdown-list">
+                        <li class="dropdown-list-item" data-value="marat">Марат</li>
+                        <li class="dropdown-list-item" data-value="ekaterina">Екатерина</li>
+                        <li class="dropdown-list-item" data-value="sergey">Сергей</li>
+                        <li class="dropdown-list-item" data-value="artur">Артур</li>
+                        <li class="dropdown-list-item" data-value="david">Давид</li>
+                        <li class="dropdown-list-item" data-value="olga">Ольга</li>
+                        <li class="dropdown-list-item" data-value="ruslan">Руслан</li>
+                        <li class="dropdown-list-item" data-value="tigran">Тигран</li>
+                        <li class="dropdown-list-item" data-value="aleksey">Алексей</li>
+                    </ul>
+                    <input type="text" name="select-category" value="" class="dropdown-input-hidden" id="master">
+                    <div class="error-input">Выберете мастера</div>
+                </div>
+            </div>
+
+            <div class="form-select">
+                <div class="dropdown">
+                    <button class="dropdown-button" id="time-btn">Выберете время</button>
+                    <ul class="dropdown-list">
+                        <li class="dropdown-list-item" data-value="10">10 : 00</li>
+                        <li class="dropdown-list-item" data-value="11">11 : 00</li>
+                        <li class="dropdown-list-item" data-value="12">12 : 00</li>
+                        <li class="dropdown-list-item" data-value="13">13 : 00</li>
+                        <li class="dropdown-list-item" data-value="14">14 : 00</li>
+                        <li class="dropdown-list-item" data-value="15">15 : 00</li>
+                        <li class="dropdown-list-item" data-value="16">16 : 00</li>
+                        <li class="dropdown-list-item" data-value="17">17 : 00</li>
+                        <li class="dropdown-list-item" data-value="18">18 : 00</li>
+                        <li class="dropdown-list-item" data-value="19">19 : 00</li>
+                        <li class="dropdown-list-item" data-value="20">20 : 00</li>
+                        <li class="dropdown-list-item" data-value="21">21 : 00</li>
+                    </ul>
+                    <input type="text" name="select-category" value="" class="dropdown-input-hidden" id="time">
+                    <div class="error-input">Выберете время посещения</div>
+                </div>
+            </div>
+
+            <button class="btn form-btn" id="submit">Оформите заявку</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup-thx popup" id="popup-thx">
+    <div class="popup-body">
+        <button class="popup-close">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"
+                 viewBox="0 0 18 18">
+                <image id="close" width="18" height="18"
+                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAt0lEQVQ4ja3UUQrCMAwG4F/p+Qo+uoM43QF020F8dLCzeJ4hGVFCl6RdMa9JPkJTcngN5zeAGUCHurgDiEdGbgD6Cqbn3jnwJAS2nLzuQKhnOF2eXUiaSzGJrLVBJEuxHyJrQlKUw1REgzzMRCxIw+AhHqRhJgJe+1/Cm0i+CXLbtCDrYU1MgyzE/Rop5K7YwySUQ1zsu7VSRGJU205js14NmojuyR5kM9k0NgtBEcCj8rARtgCIH2ffPgMc4e6SAAAAAElFTkSuQmCC"/>
+            </svg>
+        </button>
+        <h2 class="popup-title popup-title-thx">
+            Спасибо что выбрали Strong Club!
+        </h2>
+        <div class="popup-text">
+            Наш администратор свяжется с вами в течение 10 минут, для уточнения деталей.
+        </div>
+    </div>
+</div>
+
+
+<script src="src/scripts/jquery-3.7.1.min.js"></script>
+<script src="src/scripts/slick.js"></script>
+<script src="src/scripts/jquery.inputmask.min.js"></script>
+<script src="src/scripts/wow.min.js"></script>
+<script src="src/scripts/index.js"></script>
+
+</body>
+</html>
